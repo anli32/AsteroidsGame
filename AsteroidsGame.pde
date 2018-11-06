@@ -9,7 +9,7 @@ public void setup()
 
   galaxy = new Star[100];
   for(int i = 0; i < galaxy.length; i++)
-  	galaxy[i] = Star((int)(Math.random()*500), (int)(Math.random()*500));
+  	galaxy[i] = new Star();
 }
 
 public void draw() 
