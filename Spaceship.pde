@@ -13,7 +13,7 @@ class Spaceship extends Floater
     xCorners[3] = -4;
     yCorners[3] = -4;
     
-    myColor = color(255, 255, 255);
+    myColor = color(175, 209, 250);
     
     myCenterX = width / 2;
     myCenterY = height / 2;
