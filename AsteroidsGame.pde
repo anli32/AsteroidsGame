@@ -1,7 +1,7 @@
 Spaceship bob;// = new Spaceship(); If I do this, the spaceship will be initialized before the size of the canvas is changed so that it will only appear in the upper left corner
 // this is because I use width and height to determine the center of the ship
 Star[] galaxy;
-Asteroid[] asteroids;
+ArrayList<Asteroid> asteroids;
 
 public void setup() 
 {
@@ -12,21 +12,25 @@ public void setup()
   for(int i = 0; i < galaxy.length; i++)
   	galaxy[i] = new Star();
 
-  asteroids = new Asteroid[50];
-  for(int i = 0; i < asteroids.length; i++) 
-  	asteroids[i] = new Asteroid();
+  asteroids = new ArrayList <Asteroid>();
+  for(int i = 0; i < 50; i++) 
+  	asteroids.add(new Asteroid());
 }
 
 public void draw() 
 {
   background(0);
+
+  for(int i = 0; i < asteroids.size(); i++) {
+  	asteroids.get(i).move();
+  	asteroids.get(i).show();
+  	float d = dist(bob.getX(), bob.getY(), asteroids.get(i).getX(), asteroids.get(i).getY());
+  	if(d < 15)
+  		asteroids.remove(i);
+  }
+
   bob.show();
   bob.move();
-
-  for(int i = 0; i < asteroids.length; i++) {
-  	asteroids[i].show();
-  	asteroids[i].move();
-  }
 
   for(int i = 0; i < galaxy.length; i++)
   	galaxy[i].display();

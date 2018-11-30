@@ -93,6 +93,7 @@ class Asteroid extends Floater {
     // Override Floater's move function
     public void move() {
     	turn(rotateSpeed);
+    	// If the direction is set at 0, it won't move so set it to direction of 1
     	if(myDirectionX == 0 && myDirectionY == 0){
     		myDirectionX = 1;
     		myDirectionY = 1; 
