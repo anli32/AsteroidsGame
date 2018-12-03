@@ -2,11 +2,13 @@ Spaceship bob;// = new Spaceship(); If I do this, the spaceship will be initiali
 // this is because I use width and height to determine the center of the ship
 Star[] galaxy;
 ArrayList<Asteroid> asteroids;
+Bullet bull;
 
 public void setup() 
 {
   size(500, 500);
   bob = new Spaceship();
+  bull = new Bullet(bob);
 
   galaxy = new Star[100];
   for(int i = 0; i < galaxy.length; i++)
@@ -29,11 +31,12 @@ public void draw()
   		asteroids.remove(i);
   }
 
-  bob.show();
-  bob.move();
-
   for(int i = 0; i < galaxy.length; i++)
   	galaxy[i].display();
+
+  bob.show();
+  bob.move();
+  bull.show();
 
 }
 
