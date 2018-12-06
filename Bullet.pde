@@ -1,6 +1,6 @@
 class Bullet extends Floater {
 	//Don't need to declare variables, inherited from Floater function
-	Bullet(Spaceship theShip) {
+	public Bullet(Spaceship theShip) {
 		myCenterX = theShip.getX();
 		myCenterY = theShip.getY();
 		myPointDirection = theShip.getPointDirection();
@@ -12,9 +12,17 @@ class Bullet extends Floater {
 	}
 
 	public void show() {
-		fill(77, 255, 245);
-		ellipse((float)myCenterX, (float)myCenterX, 10, 10);
+		noStroke();
+		fill(250, 174, 241);
+		ellipse((float)myCenterX, (float)myCenterY, 5, 5);
 	}
+
+	public void move () {   //move the floater in the current direction of travel
+       
+    //change the x and y coordinates by myDirectionX and myDirectionY       
+    myCenterX += myDirectionX;    
+    myCenterY += myDirectionY;       
+  	}   
 
 	public void setX(int x) {
         myCenterX = x;
